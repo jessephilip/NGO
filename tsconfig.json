@@ -1,0 +1,1 @@
+{"compilerOptions":{"allowJs":true,"module":"commonjs","target":"es5","noImplicitAny":false,"sourceMap":true,"noImplicitReturns":true,"outDir":"view/assets/javascript/","pretty":true,"removeComments":false,"watch":true},"include":["view/assets/typescript/*.ts"],"exclude":["node_modules"]}

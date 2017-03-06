@@ -1,0 +1,1 @@
+{"name":"NGO","version":"1.0.0","description":"NGO","main":"bundle.js","dependencies":{"source-map-loader":"^0.1.6","ts-loader":"^2.0.1"},"devDependencies":{"source-map-loader":"^0.1.6","ts-loader":"^2.0.1","typescript":"^2.2.1","webpack":"^2.2.1"},"scripts":{"test":"echo\"Error:notestspecified\"&&exit1","start":"webpack --configwebpack.config.js"},"author":"","license":"ISC"}
