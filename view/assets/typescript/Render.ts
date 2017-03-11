@@ -2,9 +2,9 @@
 
 export default class Render {
 
-	// locations is an object with strings holding the location of various DOM elements
-	private locations = {
+    // locations is an object with strings holding the location of various DOM elements
+    private locations = {
 
-		// header
-	};
+        // header
+    };
 }
