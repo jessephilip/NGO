@@ -1,21 +1,14 @@
 // Welcome to TypeScript Starter
-import { Permissions } from "./Permissions";
+
 import { Calendar } from "./Calendar";
+import { CalendarEvent } from "./CalendarEvent";
 
-let button = document.getElementsByTagName("button")[0];
+let newCalendar: Calendar = new Calendar("TJ Maxx", "jessephilip", "google");
 
-button.addEventListener("click", clicked);
+let cId: string = newCalendar.getCalendarId();
 
-let perm = new Permissions;
+console.log("newCalendar: ", newCalendar);
 
-perm.allowNotifications();
+let newEvent: CalendarEvent = new CalendarEvent("TJ Smaxx", "Bored", 1, cId, 12, 15);
 
-function clicked() {
-	console.log("clicked");
-
-}
-
-
-let newCalendar = new Calendar();
-
-console.dir(newCalendar.createHour());
+console.log(`newEvent: ${newEvent}. ${newEvent.getEventId()}`);

@@ -1,0 +1,214 @@
+{
+  "errors": [],
+  "warnings": [],
+  "version": "2.2.1",
+  "hash": "b4fb68e452fd7ee294d4",
+  "time": 293,
+  "publicPath": "",
+  "assetsByChunkName": {
+    "main": "bundle.js"
+  },
+  "assets": [
+    {
+      "name": "bundle.js",
+      "size": 15814,
+      "chunks": [
+        0
+      ],
+      "chunkNames": [
+        "main"
+      ],
+      "emitted": true
+    }
+  ],
+  "entrypoints": {
+    "main": {
+      "chunks": [
+        0
+      ],
+      "assets": [
+        "bundle.js"
+      ]
+    }
+  },
+  "chunks": [
+    {
+      "id": 0,
+      "rendered": true,
+      "initial": true,
+      "entry": true,
+      "extraAsync": false,
+      "size": 1853,
+      "names": [
+        "main"
+      ],
+      "files": [
+        "bundle.js"
+      ],
+      "hash": "c679a4caa9b356c57f69",
+      "parents": [],
+      "modules": [
+        {
+          "id": 0,
+          "identifier": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\Permissions.js",
+          "name": "./view/assets/javascript/Permissions.js",
+          "index": 1,
+          "index2": 0,
+          "size": 1466,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "assets": [],
+          "issuer": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\master.js",
+          "issuerId": 1,
+          "issuerName": "./view/assets/javascript/master.js",
+          "profile": {
+            "factory": 4,
+            "building": 23
+          },
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "reasons": [
+            {
+              "moduleId": 1,
+              "moduleIdentifier": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\master.js",
+              "module": "./view/assets/javascript/master.js",
+              "moduleName": "./view/assets/javascript/master.js",
+              "type": "cjs require",
+              "userRequest": "./Permissions",
+              "loc": "4:20-44"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": null,
+          "depth": 1,
+          "source": "\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar Permissions = (function () {\r\n    function Permissions() {\r\n        // method to get user's permission for system notifications\r\n        this.allowNotifications = function () {\r\n            // first check if the user's browser supports notifications\r\n            if (!(\"Notification\" in window)) {\r\n                alert(\"Unfortunately, your browser does not support system notifications.\");\r\n            }\r\n            else {\r\n                // request notification permission\r\n                Notification.requestPermission().then(function (result) {\r\n                    console.log(\"Allow Notification Success: \" + result + \".\");\r\n                }).catch(function (error) {\r\n                    console.log(\"Allow Notifications Error: \" + error + \".\");\r\n                });\r\n            }\r\n        };\r\n        //\r\n        this.checkNotificationPermission = function () {\r\n            // check if notification access has been granted\r\n            // TODO: need to create a definition for this notification || or perhaps do this type of thing in native JS\r\n            // if (Notification.permission === \"granted\") return true;\r\n            // else return false;\r\n        };\r\n        this.allowGeolocation = function () {\r\n        };\r\n        this.checkGeolocationPermission = function () {\r\n        };\r\n    }\r\n    return Permissions;\r\n}());\r\nexports.Permissions = Permissions;\r\n"
+        },
+        {
+          "id": 1,
+          "identifier": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\master.js",
+          "name": "./view/assets/javascript/master.js",
+          "index": 0,
+          "index2": 1,
+          "size": 387,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "assets": [],
+          "issuer": null,
+          "issuerId": null,
+          "issuerName": null,
+          "profile": {
+            "factory": 29,
+            "building": 59
+          },
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "reasons": [],
+          "usedExports": true,
+          "providedExports": null,
+          "depth": 0,
+          "source": "\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n// Welcome to TypeScript Starter\r\nvar Permissions_1 = require(\"./Permissions\");\r\nvar button = document.getElementsByTagName(\"button\")[0];\r\nbutton.addEventListener(\"click\", clicked);\r\nvar perm = new Permissions_1.Permissions;\r\nperm.allowNotifications();\r\nfunction clicked() {\r\n    console.log(\"clicked\");\r\n}\r\n"
+        }
+      ],
+      "filteredModules": 0,
+      "origins": [
+        {
+          "moduleId": 1,
+          "module": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\master.js",
+          "moduleIdentifier": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\master.js",
+          "moduleName": "./view/assets/javascript/master.js",
+          "loc": "",
+          "name": "main",
+          "reasons": []
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": 0,
+      "identifier": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\Permissions.js",
+      "name": "./view/assets/javascript/Permissions.js",
+      "index": 1,
+      "index2": 0,
+      "size": 1466,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "assets": [],
+      "issuer": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\master.js",
+      "issuerId": 1,
+      "issuerName": "./view/assets/javascript/master.js",
+      "profile": {
+        "factory": 4,
+        "building": 23
+      },
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": [
+        {
+          "moduleId": 1,
+          "moduleIdentifier": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\master.js",
+          "module": "./view/assets/javascript/master.js",
+          "moduleName": "./view/assets/javascript/master.js",
+          "type": "cjs require",
+          "userRequest": "./Permissions",
+          "loc": "4:20-44"
+        }
+      ],
+      "usedExports": true,
+      "providedExports": null,
+      "depth": 1,
+      "source": "\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar Permissions = (function () {\r\n    function Permissions() {\r\n        // method to get user's permission for system notifications\r\n        this.allowNotifications = function () {\r\n            // first check if the user's browser supports notifications\r\n            if (!(\"Notification\" in window)) {\r\n                alert(\"Unfortunately, your browser does not support system notifications.\");\r\n            }\r\n            else {\r\n                // request notification permission\r\n                Notification.requestPermission().then(function (result) {\r\n                    console.log(\"Allow Notification Success: \" + result + \".\");\r\n                }).catch(function (error) {\r\n                    console.log(\"Allow Notifications Error: \" + error + \".\");\r\n                });\r\n            }\r\n        };\r\n        //\r\n        this.checkNotificationPermission = function () {\r\n            // check if notification access has been granted\r\n            // TODO: need to create a definition for this notification || or perhaps do this type of thing in native JS\r\n            // if (Notification.permission === \"granted\") return true;\r\n            // else return false;\r\n        };\r\n        this.allowGeolocation = function () {\r\n        };\r\n        this.checkGeolocationPermission = function () {\r\n        };\r\n    }\r\n    return Permissions;\r\n}());\r\nexports.Permissions = Permissions;\r\n"
+    },
+    {
+      "id": 1,
+      "identifier": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\master.js",
+      "name": "./view/assets/javascript/master.js",
+      "index": 0,
+      "index2": 1,
+      "size": 387,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "assets": [],
+      "issuer": null,
+      "issuerId": null,
+      "issuerName": null,
+      "profile": {
+        "factory": 29,
+        "building": 59
+      },
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": [],
+      "usedExports": true,
+      "providedExports": null,
+      "depth": 0,
+      "source": "\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n// Welcome to TypeScript Starter\r\nvar Permissions_1 = require(\"./Permissions\");\r\nvar button = document.getElementsByTagName(\"button\")[0];\r\nbutton.addEventListener(\"click\", clicked);\r\nvar perm = new Permissions_1.Permissions;\r\nperm.allowNotifications();\r\nfunction clicked() {\r\n    console.log(\"clicked\");\r\n}\r\n"
+    }
+  ],
+  "filteredModules": 0,
+  "children": []
+}
