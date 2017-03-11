@@ -1,0 +1,20 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskName": "task-Calendar",
+      "appliesTo": "view/assets/typescript/Calendar.ts",
+      "type": "command"
+    },
+    {
+      "taskName": "task-Calendar",
+      "appliesTo": "view/assets/typescript/Calendar.ts",
+      "type": "command"
+    },
+    {
+      "taskName": "task-Calendar",
+      "appliesTo": "view/assets/typescript/Calendar.ts",
+      "type": "command"
+    }
+  ]
+}
