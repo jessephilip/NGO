@@ -2,8 +2,8 @@
   "errors": [],
   "warnings": [],
   "version": "2.2.1",
-  "hash": "b4fb68e452fd7ee294d4",
-  "time": 293,
+  "hash": "186ecf401eef0f441fc3",
+  "time": 422,
   "publicPath": "",
   "assetsByChunkName": {
     "main": "bundle.js"
@@ -11,7 +11,7 @@
   "assets": [
     {
       "name": "bundle.js",
-      "size": 15814,
+      "size": 47021,
       "chunks": [
         0
       ],
@@ -38,23 +38,23 @@
       "initial": true,
       "entry": true,
       "extraAsync": false,
-      "size": 1853,
+      "size": 9455,
       "names": [
         "main"
       ],
       "files": [
         "bundle.js"
       ],
-      "hash": "c679a4caa9b356c57f69",
+      "hash": "3918b88428cca63f44d9",
       "parents": [],
       "modules": [
         {
           "id": 0,
-          "identifier": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\Permissions.js",
-          "name": "./view/assets/javascript/Permissions.js",
+          "identifier": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\Calendar.js",
+          "name": "./view/assets/javascript/Calendar.js",
           "index": 1,
           "index2": 0,
-          "size": 1466,
+          "size": 4522,
           "cacheable": true,
           "built": true,
           "optional": false,
@@ -64,38 +64,120 @@
           ],
           "assets": [],
           "issuer": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\master.js",
-          "issuerId": 1,
+          "issuerId": 3,
           "issuerName": "./view/assets/javascript/master.js",
           "profile": {
-            "factory": 4,
-            "building": 23
+            "factory": 6,
+            "building": 38
           },
           "failed": false,
           "errors": 0,
           "warnings": 0,
           "reasons": [
             {
-              "moduleId": 1,
+              "moduleId": 3,
               "moduleIdentifier": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\master.js",
               "module": "./view/assets/javascript/master.js",
               "moduleName": "./view/assets/javascript/master.js",
               "type": "cjs require",
-              "userRequest": "./Permissions",
-              "loc": "4:20-44"
+              "userRequest": "./Calendar",
+              "loc": "2:17-38"
             }
           ],
           "usedExports": true,
           "providedExports": null,
           "depth": 1,
-          "source": "\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar Permissions = (function () {\r\n    function Permissions() {\r\n        // method to get user's permission for system notifications\r\n        this.allowNotifications = function () {\r\n            // first check if the user's browser supports notifications\r\n            if (!(\"Notification\" in window)) {\r\n                alert(\"Unfortunately, your browser does not support system notifications.\");\r\n            }\r\n            else {\r\n                // request notification permission\r\n                Notification.requestPermission().then(function (result) {\r\n                    console.log(\"Allow Notification Success: \" + result + \".\");\r\n                }).catch(function (error) {\r\n                    console.log(\"Allow Notifications Error: \" + error + \".\");\r\n                });\r\n            }\r\n        };\r\n        //\r\n        this.checkNotificationPermission = function () {\r\n            // check if notification access has been granted\r\n            // TODO: need to create a definition for this notification || or perhaps do this type of thing in native JS\r\n            // if (Notification.permission === \"granted\") return true;\r\n            // else return false;\r\n        };\r\n        this.allowGeolocation = function () {\r\n        };\r\n        this.checkGeolocationPermission = function () {\r\n        };\r\n    }\r\n    return Permissions;\r\n}());\r\nexports.Permissions = Permissions;\r\n"
+          "source": "\"use strict\";\r\n// the calendar class creates the calendar, days, months, years, etc.\r\nvar Calendar = (function () {\r\n    // basic constructor\r\n    function Calendar(name, calendarUser, type, color) {\r\n        if (name === void 0) { name = \"unknown\"; }\r\n        if (calendarUser === void 0) { calendarUser = \"unknown\"; }\r\n        if (type === void 0) { type = \"unknown\"; }\r\n        if (color === void 0) { color = \"blue\"; }\r\n        var _this = this;\r\n        // METHODS -- GETTERS //\r\n        this.getName = function () {\r\n            return _this.name;\r\n        };\r\n        this.getCalendarId = function () {\r\n            return _this.calendarId;\r\n        };\r\n        this.getCalendarUser = function () {\r\n            return _this.calendarUser;\r\n        };\r\n        this.getType = function () {\r\n            return _this.type;\r\n        };\r\n        this.getColor = function () {\r\n            return _this.color;\r\n        };\r\n        this.getEvents = function () {\r\n            return _this.events;\r\n        };\r\n        // METHODS -- SETTERS //\r\n        this.setName = function (name) {\r\n            _this.name = name;\r\n        };\r\n        this.setCalendarId = function (calendarId) {\r\n            _this.calendarId = calendarId;\r\n        };\r\n        this.setCalendarUser = function (calendarUser) {\r\n            _this.calendarUser = calendarUser;\r\n        };\r\n        this.setType = function (type) {\r\n            _this.type = type;\r\n        };\r\n        this.setColor = function (color) {\r\n            _this.color = color;\r\n        };\r\n        this.setEvents = function (events) {\r\n            _this.events = events;\r\n        };\r\n        // this method creates a unique calendarId. syntax <c><random sequence of 10 numbers><timestamp>\r\n        this.createCalendarId = function () {\r\n            // variable to hold string\r\n            var calendarId = \"c\";\r\n            // add 10 random numbers to the eventId string\r\n            for (var i = 0; i < 10; i++) {\r\n                calendarId += Math.floor(Math.random() * 9).toString();\r\n            }\r\n            // add the timestamp to the eventId\r\n            calendarId += Date.now().toString();\r\n            // show the eventId in the console\r\n            console.log(\"EventId: \" + calendarId);\r\n            // return the completed eventId\r\n            return calendarId;\r\n        };\r\n        // create minutes in an hour. 60 minuts in an hour.\r\n        // minute props: status(open, busy), event(name of the event, if busy)\r\n        this.createMinutes = function () {\r\n            var minuteArray;\r\n            // create an array of 60 minutes\r\n            for (var i = 0; i < 60; i++) {\r\n                var newMinute = {\r\n                    status: \"\",\r\n                    event: \"\"\r\n                };\r\n                minuteArray.push(newMinute);\r\n            }\r\n            // return the minuteArray. an array of 60 minute objects\r\n            return minuteArray;\r\n        };\r\n        this.createHour = function () {\r\n            var hour = {\r\n                minutes: _this.createMinutes()\r\n            };\r\n            return hour;\r\n        };\r\n        this.name = name;\r\n        this.calendarId = this.createCalendarId();\r\n        this.calendarUser = calendarUser;\r\n        this.type = type;\r\n        this.color = color;\r\n    }\r\n    // METHODS -- EVENTS //\r\n    // method to add a single event to the calendar\r\n    Calendar.prototype.addEvent = function (event) {\r\n        // get events\r\n        var events = this.getEvents();\r\n        // push event to the events array\r\n        events.push(event);\r\n        this.setEvents(events);\r\n        console.log(\"Event added to \" + this.name + \" calendar.\");\r\n    };\r\n    Calendar.prototype.deleteEvent = function (event) {\r\n        // get eventId from argument\r\n        var eventId = event.getEventId();\r\n        // loop through events array to find matching eventId\r\n        for (var i = 0; i < this.events.length; i++) {\r\n            // if a match is returned, then the event is located at this.events[i]\r\n            if (event.getEventId() == this.events[i].getEventId()) {\r\n                // remove element from the array\r\n                this.events.splice(i);\r\n            }\r\n            else {\r\n                return new Error(\"Error finding eventId \" + eventId + \" in \" + this.name + \".\");\r\n            }\r\n        }\r\n        console.log(\"Event \" + eventId + \" removed from the events on calendar \" + this.name + \".\");\r\n        return true;\r\n    };\r\n    return Calendar;\r\n}());\r\nexports.Calendar = Calendar;\r\n"
         },
         {
           "id": 1,
+          "identifier": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\CalendarEvent.js",
+          "name": "./view/assets/javascript/CalendarEvent.js",
+          "index": 2,
+          "index2": 1,
+          "size": 2851,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "assets": [],
+          "issuer": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\master.js",
+          "issuerId": 3,
+          "issuerName": "./view/assets/javascript/master.js",
+          "profile": {
+            "factory": 8,
+            "building": 50
+          },
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "reasons": [
+            {
+              "moduleId": 3,
+              "moduleIdentifier": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\master.js",
+              "module": "./view/assets/javascript/master.js",
+              "moduleName": "./view/assets/javascript/master.js",
+              "type": "cjs require",
+              "userRequest": "./CalendarEvent",
+              "loc": "3:22-48"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": null,
+          "depth": 1,
+          "source": "// this file creates a class for calendar events\r\n\"use strict\";\r\nvar CalendarEvent = (function () {\r\n    // basic constructor\r\n    function CalendarEvent(name, description, priority, calendarId, startTime, endTime) {\r\n        if (name === void 0) { name = \"unknown\"; }\r\n        if (description === void 0) { description = \"unknown\"; }\r\n        if (priority === void 0) { priority = 1; }\r\n        if (calendarId === void 0) { calendarId = \"unknown\"; }\r\n        var _this = this;\r\n        // METHODS -- GETTERS//\r\n        this.getName = function () {\r\n            return _this.name;\r\n        };\r\n        this.getDescription = function () {\r\n            return _this.description;\r\n        };\r\n        this.getPriority = function () {\r\n            return _this.priority;\r\n        };\r\n        this.getEventId = function () {\r\n            return _this.eventId;\r\n        };\r\n        this.getCalendarId = function () {\r\n            return _this.calendarId;\r\n        };\r\n        this.getStartTime = function () {\r\n            return _this.startTime;\r\n        };\r\n        this.getEndTime = function () {\r\n            return _this.endTime;\r\n        };\r\n        // METHODS -- SETTERS //\r\n        this.setName = function (name) {\r\n            _this.name = name;\r\n        };\r\n        this.setDescription = function (description) {\r\n            _this.description = description;\r\n        };\r\n        this.setPriority = function (priority) {\r\n            _this.priority = priority;\r\n        };\r\n        this.setCalendarId = function (calendarId) {\r\n            _this.calendarId = calendarId;\r\n        };\r\n        this.setStartTime = function (startTime) {\r\n            _this.startTime = startTime;\r\n        };\r\n        this.setEndTime = function (endTime) {\r\n            _this.endTime = endTime;\r\n        };\r\n        // METHODS -- CREATE //\r\n        // this method creates a unique eventId. syntax <e><random sequence of 10 numbers><timestamp>\r\n        this.createEventId = function () {\r\n            // variable to hold string\r\n            var eventId = \"e\";\r\n            // add 10 random numbers to the eventId string\r\n            for (var i = 0; i < 10; i++) {\r\n                eventId += Math.floor(Math.random() * 9).toString();\r\n            }\r\n            // add the timestamp to the eventId\r\n            eventId += Date.now().toString();\r\n            // show the eventId in the console\r\n            console.log(\"EventId: \" + eventId);\r\n            // return the completed eventId\r\n            return eventId;\r\n        };\r\n        this.name = name;\r\n        this.description = description;\r\n        this.priority = priority;\r\n        this.eventId = this.createEventId();\r\n        this.calendarId = calendarId;\r\n        this.startTime = startTime;\r\n        this.endTime = endTime;\r\n    }\r\n    return CalendarEvent;\r\n}());\r\nexports.CalendarEvent = CalendarEvent;\r\n"
+        },
+        {
+          "id": 2,
+          "identifier": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\Render.js",
+          "name": "./view/assets/javascript/Render.js",
+          "index": 3,
+          "index2": 2,
+          "size": 1402,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "assets": [],
+          "issuer": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\master.js",
+          "issuerId": 3,
+          "issuerName": "./view/assets/javascript/master.js",
+          "profile": {
+            "factory": 9,
+            "building": 54
+          },
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "reasons": [
+            {
+              "moduleId": 3,
+              "moduleIdentifier": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\master.js",
+              "module": "./view/assets/javascript/master.js",
+              "moduleName": "./view/assets/javascript/master.js",
+              "type": "cjs require",
+              "userRequest": "./Render",
+              "loc": "4:15-34"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": null,
+          "depth": 1,
+          "source": "// render class that generates predefined components\r\n\"use strict\";\r\nvar Render = (function () {\r\n    function Render() {\r\n        this.locations = {\r\n            nav: document.getElementsByTagName(\"nav\")[0],\r\n            main: document.getElementsByTagName(\"main\")[0],\r\n            footer: document.getElementsByTagName(\"footer\")[0]\r\n        };\r\n        // METHODS //\r\n        this.makeCircle = function (x, y, z, unit, bgColor, txtColor) {\r\n            if (x === void 0) { x = 100; }\r\n            if (y === void 0) { y = 100; }\r\n            if (z === void 0) { z = 1; }\r\n            if (unit === void 0) { unit = \"px\"; }\r\n            if (bgColor === void 0) { bgColor = \"black\"; }\r\n            if (txtColor === void 0) { txtColor = \"white\"; }\r\n            // create a div element\r\n            var circle = document.createElement(\"div\");\r\n            // style the HTML element dimensions\r\n            circle.style.width = x + unit;\r\n            circle.style.height = y + unit;\r\n            circle.style.borderRadius = (x / 2) + unit;\r\n            // style the HTML element colors\r\n            circle.style.backgroundColor = bgColor;\r\n            circle.style.color = txtColor;\r\n            // style the box-shadow\r\n            // add class circle\r\n            circle.setAttribute(\"class\", \"circle\");\r\n            return circle;\r\n        };\r\n    }\r\n    return Render;\r\n}());\r\nexports.Render = Render;\r\n"
+        },
+        {
+          "id": 3,
           "identifier": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\master.js",
           "name": "./view/assets/javascript/master.js",
           "index": 0,
-          "index2": 1,
-          "size": 387,
+          "index2": 3,
+          "size": 680,
           "cacheable": true,
           "built": true,
           "optional": false,
@@ -108,8 +190,8 @@
           "issuerId": null,
           "issuerName": null,
           "profile": {
-            "factory": 29,
-            "building": 59
+            "factory": 28,
+            "building": 57
           },
           "failed": false,
           "errors": 0,
@@ -118,13 +200,13 @@
           "usedExports": true,
           "providedExports": null,
           "depth": 0,
-          "source": "\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n// Welcome to TypeScript Starter\r\nvar Permissions_1 = require(\"./Permissions\");\r\nvar button = document.getElementsByTagName(\"button\")[0];\r\nbutton.addEventListener(\"click\", clicked);\r\nvar perm = new Permissions_1.Permissions;\r\nperm.allowNotifications();\r\nfunction clicked() {\r\n    console.log(\"clicked\");\r\n}\r\n"
+          "source": "\"use strict\";\r\nvar Calendar_1 = require(\"./Calendar\");\r\nvar CalendarEvent_1 = require(\"./CalendarEvent\");\r\nvar Render_1 = require(\"./Render\");\r\nvar newCalendar = new Calendar_1.Calendar(\"TJ Maxx\", \"jessephilip\", \"google\");\r\nvar cId = newCalendar.getCalendarId();\r\nconsole.log(\"newCalendar: \", newCalendar);\r\nvar newEvent = new CalendarEvent_1.CalendarEvent(\"TJ Smaxx\", \"Bored\", 1, cId, 12, 15);\r\nconsole.log(\"newEvent: \" + newEvent + \". \" + newEvent.getEventId());\r\nvar render = new Render_1.Render();\r\nvar location = render.locations.main;\r\nconsole.log(\"location:\", location);\r\nvar circle = render.makeCircle();\r\nconsole.log(\"circle: \" + circle);\r\nlocation.appendChild(circle);\r\n"
         }
       ],
       "filteredModules": 0,
       "origins": [
         {
-          "moduleId": 1,
+          "moduleId": 3,
           "module": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\master.js",
           "moduleIdentifier": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\master.js",
           "moduleName": "./view/assets/javascript/master.js",
@@ -138,11 +220,11 @@
   "modules": [
     {
       "id": 0,
-      "identifier": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\Permissions.js",
-      "name": "./view/assets/javascript/Permissions.js",
+      "identifier": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\Calendar.js",
+      "name": "./view/assets/javascript/Calendar.js",
       "index": 1,
       "index2": 0,
-      "size": 1466,
+      "size": 4522,
       "cacheable": true,
       "built": true,
       "optional": false,
@@ -152,38 +234,120 @@
       ],
       "assets": [],
       "issuer": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\master.js",
-      "issuerId": 1,
+      "issuerId": 3,
       "issuerName": "./view/assets/javascript/master.js",
       "profile": {
-        "factory": 4,
-        "building": 23
+        "factory": 6,
+        "building": 38
       },
       "failed": false,
       "errors": 0,
       "warnings": 0,
       "reasons": [
         {
-          "moduleId": 1,
+          "moduleId": 3,
           "moduleIdentifier": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\master.js",
           "module": "./view/assets/javascript/master.js",
           "moduleName": "./view/assets/javascript/master.js",
           "type": "cjs require",
-          "userRequest": "./Permissions",
-          "loc": "4:20-44"
+          "userRequest": "./Calendar",
+          "loc": "2:17-38"
         }
       ],
       "usedExports": true,
       "providedExports": null,
       "depth": 1,
-      "source": "\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar Permissions = (function () {\r\n    function Permissions() {\r\n        // method to get user's permission for system notifications\r\n        this.allowNotifications = function () {\r\n            // first check if the user's browser supports notifications\r\n            if (!(\"Notification\" in window)) {\r\n                alert(\"Unfortunately, your browser does not support system notifications.\");\r\n            }\r\n            else {\r\n                // request notification permission\r\n                Notification.requestPermission().then(function (result) {\r\n                    console.log(\"Allow Notification Success: \" + result + \".\");\r\n                }).catch(function (error) {\r\n                    console.log(\"Allow Notifications Error: \" + error + \".\");\r\n                });\r\n            }\r\n        };\r\n        //\r\n        this.checkNotificationPermission = function () {\r\n            // check if notification access has been granted\r\n            // TODO: need to create a definition for this notification || or perhaps do this type of thing in native JS\r\n            // if (Notification.permission === \"granted\") return true;\r\n            // else return false;\r\n        };\r\n        this.allowGeolocation = function () {\r\n        };\r\n        this.checkGeolocationPermission = function () {\r\n        };\r\n    }\r\n    return Permissions;\r\n}());\r\nexports.Permissions = Permissions;\r\n"
+      "source": "\"use strict\";\r\n// the calendar class creates the calendar, days, months, years, etc.\r\nvar Calendar = (function () {\r\n    // basic constructor\r\n    function Calendar(name, calendarUser, type, color) {\r\n        if (name === void 0) { name = \"unknown\"; }\r\n        if (calendarUser === void 0) { calendarUser = \"unknown\"; }\r\n        if (type === void 0) { type = \"unknown\"; }\r\n        if (color === void 0) { color = \"blue\"; }\r\n        var _this = this;\r\n        // METHODS -- GETTERS //\r\n        this.getName = function () {\r\n            return _this.name;\r\n        };\r\n        this.getCalendarId = function () {\r\n            return _this.calendarId;\r\n        };\r\n        this.getCalendarUser = function () {\r\n            return _this.calendarUser;\r\n        };\r\n        this.getType = function () {\r\n            return _this.type;\r\n        };\r\n        this.getColor = function () {\r\n            return _this.color;\r\n        };\r\n        this.getEvents = function () {\r\n            return _this.events;\r\n        };\r\n        // METHODS -- SETTERS //\r\n        this.setName = function (name) {\r\n            _this.name = name;\r\n        };\r\n        this.setCalendarId = function (calendarId) {\r\n            _this.calendarId = calendarId;\r\n        };\r\n        this.setCalendarUser = function (calendarUser) {\r\n            _this.calendarUser = calendarUser;\r\n        };\r\n        this.setType = function (type) {\r\n            _this.type = type;\r\n        };\r\n        this.setColor = function (color) {\r\n            _this.color = color;\r\n        };\r\n        this.setEvents = function (events) {\r\n            _this.events = events;\r\n        };\r\n        // this method creates a unique calendarId. syntax <c><random sequence of 10 numbers><timestamp>\r\n        this.createCalendarId = function () {\r\n            // variable to hold string\r\n            var calendarId = \"c\";\r\n            // add 10 random numbers to the eventId string\r\n            for (var i = 0; i < 10; i++) {\r\n                calendarId += Math.floor(Math.random() * 9).toString();\r\n            }\r\n            // add the timestamp to the eventId\r\n            calendarId += Date.now().toString();\r\n            // show the eventId in the console\r\n            console.log(\"EventId: \" + calendarId);\r\n            // return the completed eventId\r\n            return calendarId;\r\n        };\r\n        // create minutes in an hour. 60 minuts in an hour.\r\n        // minute props: status(open, busy), event(name of the event, if busy)\r\n        this.createMinutes = function () {\r\n            var minuteArray;\r\n            // create an array of 60 minutes\r\n            for (var i = 0; i < 60; i++) {\r\n                var newMinute = {\r\n                    status: \"\",\r\n                    event: \"\"\r\n                };\r\n                minuteArray.push(newMinute);\r\n            }\r\n            // return the minuteArray. an array of 60 minute objects\r\n            return minuteArray;\r\n        };\r\n        this.createHour = function () {\r\n            var hour = {\r\n                minutes: _this.createMinutes()\r\n            };\r\n            return hour;\r\n        };\r\n        this.name = name;\r\n        this.calendarId = this.createCalendarId();\r\n        this.calendarUser = calendarUser;\r\n        this.type = type;\r\n        this.color = color;\r\n    }\r\n    // METHODS -- EVENTS //\r\n    // method to add a single event to the calendar\r\n    Calendar.prototype.addEvent = function (event) {\r\n        // get events\r\n        var events = this.getEvents();\r\n        // push event to the events array\r\n        events.push(event);\r\n        this.setEvents(events);\r\n        console.log(\"Event added to \" + this.name + \" calendar.\");\r\n    };\r\n    Calendar.prototype.deleteEvent = function (event) {\r\n        // get eventId from argument\r\n        var eventId = event.getEventId();\r\n        // loop through events array to find matching eventId\r\n        for (var i = 0; i < this.events.length; i++) {\r\n            // if a match is returned, then the event is located at this.events[i]\r\n            if (event.getEventId() == this.events[i].getEventId()) {\r\n                // remove element from the array\r\n                this.events.splice(i);\r\n            }\r\n            else {\r\n                return new Error(\"Error finding eventId \" + eventId + \" in \" + this.name + \".\");\r\n            }\r\n        }\r\n        console.log(\"Event \" + eventId + \" removed from the events on calendar \" + this.name + \".\");\r\n        return true;\r\n    };\r\n    return Calendar;\r\n}());\r\nexports.Calendar = Calendar;\r\n"
     },
     {
       "id": 1,
+      "identifier": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\CalendarEvent.js",
+      "name": "./view/assets/javascript/CalendarEvent.js",
+      "index": 2,
+      "index2": 1,
+      "size": 2851,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "assets": [],
+      "issuer": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\master.js",
+      "issuerId": 3,
+      "issuerName": "./view/assets/javascript/master.js",
+      "profile": {
+        "factory": 8,
+        "building": 50
+      },
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": [
+        {
+          "moduleId": 3,
+          "moduleIdentifier": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\master.js",
+          "module": "./view/assets/javascript/master.js",
+          "moduleName": "./view/assets/javascript/master.js",
+          "type": "cjs require",
+          "userRequest": "./CalendarEvent",
+          "loc": "3:22-48"
+        }
+      ],
+      "usedExports": true,
+      "providedExports": null,
+      "depth": 1,
+      "source": "// this file creates a class for calendar events\r\n\"use strict\";\r\nvar CalendarEvent = (function () {\r\n    // basic constructor\r\n    function CalendarEvent(name, description, priority, calendarId, startTime, endTime) {\r\n        if (name === void 0) { name = \"unknown\"; }\r\n        if (description === void 0) { description = \"unknown\"; }\r\n        if (priority === void 0) { priority = 1; }\r\n        if (calendarId === void 0) { calendarId = \"unknown\"; }\r\n        var _this = this;\r\n        // METHODS -- GETTERS//\r\n        this.getName = function () {\r\n            return _this.name;\r\n        };\r\n        this.getDescription = function () {\r\n            return _this.description;\r\n        };\r\n        this.getPriority = function () {\r\n            return _this.priority;\r\n        };\r\n        this.getEventId = function () {\r\n            return _this.eventId;\r\n        };\r\n        this.getCalendarId = function () {\r\n            return _this.calendarId;\r\n        };\r\n        this.getStartTime = function () {\r\n            return _this.startTime;\r\n        };\r\n        this.getEndTime = function () {\r\n            return _this.endTime;\r\n        };\r\n        // METHODS -- SETTERS //\r\n        this.setName = function (name) {\r\n            _this.name = name;\r\n        };\r\n        this.setDescription = function (description) {\r\n            _this.description = description;\r\n        };\r\n        this.setPriority = function (priority) {\r\n            _this.priority = priority;\r\n        };\r\n        this.setCalendarId = function (calendarId) {\r\n            _this.calendarId = calendarId;\r\n        };\r\n        this.setStartTime = function (startTime) {\r\n            _this.startTime = startTime;\r\n        };\r\n        this.setEndTime = function (endTime) {\r\n            _this.endTime = endTime;\r\n        };\r\n        // METHODS -- CREATE //\r\n        // this method creates a unique eventId. syntax <e><random sequence of 10 numbers><timestamp>\r\n        this.createEventId = function () {\r\n            // variable to hold string\r\n            var eventId = \"e\";\r\n            // add 10 random numbers to the eventId string\r\n            for (var i = 0; i < 10; i++) {\r\n                eventId += Math.floor(Math.random() * 9).toString();\r\n            }\r\n            // add the timestamp to the eventId\r\n            eventId += Date.now().toString();\r\n            // show the eventId in the console\r\n            console.log(\"EventId: \" + eventId);\r\n            // return the completed eventId\r\n            return eventId;\r\n        };\r\n        this.name = name;\r\n        this.description = description;\r\n        this.priority = priority;\r\n        this.eventId = this.createEventId();\r\n        this.calendarId = calendarId;\r\n        this.startTime = startTime;\r\n        this.endTime = endTime;\r\n    }\r\n    return CalendarEvent;\r\n}());\r\nexports.CalendarEvent = CalendarEvent;\r\n"
+    },
+    {
+      "id": 2,
+      "identifier": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\Render.js",
+      "name": "./view/assets/javascript/Render.js",
+      "index": 3,
+      "index2": 2,
+      "size": 1402,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "assets": [],
+      "issuer": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\master.js",
+      "issuerId": 3,
+      "issuerName": "./view/assets/javascript/master.js",
+      "profile": {
+        "factory": 9,
+        "building": 54
+      },
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": [
+        {
+          "moduleId": 3,
+          "moduleIdentifier": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\master.js",
+          "module": "./view/assets/javascript/master.js",
+          "moduleName": "./view/assets/javascript/master.js",
+          "type": "cjs require",
+          "userRequest": "./Render",
+          "loc": "4:15-34"
+        }
+      ],
+      "usedExports": true,
+      "providedExports": null,
+      "depth": 1,
+      "source": "// render class that generates predefined components\r\n\"use strict\";\r\nvar Render = (function () {\r\n    function Render() {\r\n        this.locations = {\r\n            nav: document.getElementsByTagName(\"nav\")[0],\r\n            main: document.getElementsByTagName(\"main\")[0],\r\n            footer: document.getElementsByTagName(\"footer\")[0]\r\n        };\r\n        // METHODS //\r\n        this.makeCircle = function (x, y, z, unit, bgColor, txtColor) {\r\n            if (x === void 0) { x = 100; }\r\n            if (y === void 0) { y = 100; }\r\n            if (z === void 0) { z = 1; }\r\n            if (unit === void 0) { unit = \"px\"; }\r\n            if (bgColor === void 0) { bgColor = \"black\"; }\r\n            if (txtColor === void 0) { txtColor = \"white\"; }\r\n            // create a div element\r\n            var circle = document.createElement(\"div\");\r\n            // style the HTML element dimensions\r\n            circle.style.width = x + unit;\r\n            circle.style.height = y + unit;\r\n            circle.style.borderRadius = (x / 2) + unit;\r\n            // style the HTML element colors\r\n            circle.style.backgroundColor = bgColor;\r\n            circle.style.color = txtColor;\r\n            // style the box-shadow\r\n            // add class circle\r\n            circle.setAttribute(\"class\", \"circle\");\r\n            return circle;\r\n        };\r\n    }\r\n    return Render;\r\n}());\r\nexports.Render = Render;\r\n"
+    },
+    {
+      "id": 3,
       "identifier": "C:\\Users\\jesse\\Source\\Repos\\NGO\\node_modules\\source-map-loader\\index.js!C:\\Users\\jesse\\Source\\Repos\\NGO\\view\\assets\\javascript\\master.js",
       "name": "./view/assets/javascript/master.js",
       "index": 0,
-      "index2": 1,
-      "size": 387,
+      "index2": 3,
+      "size": 680,
       "cacheable": true,
       "built": true,
       "optional": false,
@@ -196,8 +360,8 @@
       "issuerId": null,
       "issuerName": null,
       "profile": {
-        "factory": 29,
-        "building": 59
+        "factory": 28,
+        "building": 57
       },
       "failed": false,
       "errors": 0,
@@ -206,7 +370,7 @@
       "usedExports": true,
       "providedExports": null,
       "depth": 0,
-      "source": "\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n// Welcome to TypeScript Starter\r\nvar Permissions_1 = require(\"./Permissions\");\r\nvar button = document.getElementsByTagName(\"button\")[0];\r\nbutton.addEventListener(\"click\", clicked);\r\nvar perm = new Permissions_1.Permissions;\r\nperm.allowNotifications();\r\nfunction clicked() {\r\n    console.log(\"clicked\");\r\n}\r\n"
+      "source": "\"use strict\";\r\nvar Calendar_1 = require(\"./Calendar\");\r\nvar CalendarEvent_1 = require(\"./CalendarEvent\");\r\nvar Render_1 = require(\"./Render\");\r\nvar newCalendar = new Calendar_1.Calendar(\"TJ Maxx\", \"jessephilip\", \"google\");\r\nvar cId = newCalendar.getCalendarId();\r\nconsole.log(\"newCalendar: \", newCalendar);\r\nvar newEvent = new CalendarEvent_1.CalendarEvent(\"TJ Smaxx\", \"Bored\", 1, cId, 12, 15);\r\nconsole.log(\"newEvent: \" + newEvent + \". \" + newEvent.getEventId());\r\nvar render = new Render_1.Render();\r\nvar location = render.locations.main;\r\nconsole.log(\"location:\", location);\r\nvar circle = render.makeCircle();\r\nconsole.log(\"circle: \" + circle);\r\nlocation.appendChild(circle);\r\n"
     }
   ],
   "filteredModules": 0,

@@ -1,10 +1,22 @@
-// Welcome to TypeScript Starter
 "use strict";
 var Calendar_1 = require("./Calendar");
 var CalendarEvent_1 = require("./CalendarEvent");
+var Render_1 = require("./Render");
 var newCalendar = new Calendar_1.Calendar("TJ Maxx", "jessephilip", "google");
 var cId = newCalendar.getCalendarId();
 console.log("newCalendar: ", newCalendar);
 var newEvent = new CalendarEvent_1.CalendarEvent("TJ Smaxx", "Bored", 1, cId, 12, 15);
 console.log("newEvent: " + newEvent + ". " + newEvent.getEventId());
+var render = new Render_1.Render();
+var location = render.locations.main;
+console.log("location:", location);
+var circle = render.makeCircle(10, 1, "vh", "blue", "white");
+circle.style.position = "absolute";
+circle.style.bottom = 5 + "vh";
+circle.style.right = 5 + "vw";
+circle.style.boxShadow = " 10px 10px 10px grey";
+console.log("circle: " + circle);
+var text = document.createTextNode("+");
+circle.appendChild(text);
+location.appendChild(circle);
 //# sourceMappingURL=master.js.map

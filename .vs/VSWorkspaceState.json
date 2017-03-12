@@ -3,8 +3,7 @@
     "",
     "\\view",
     "\\view\\assets",
-    "\\view\\assets\\javascript",
-    "\\view\\assets\\typescript"
+    "\\view\\assets\\scss"
   ],
   "SelectedNode": "\\webpack.config.js",
   "PreviewInSolutionExplorer": false
